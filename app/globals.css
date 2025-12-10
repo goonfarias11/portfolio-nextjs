@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased bg-slate-950 text-white;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, #5e2bff 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(94, 43, 255, 0.3);
+  }
+
+  .glass-effect-light {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(94, 43, 255, 0.2);
+  }
+
+  .animate-slideshow {
+    animation: slideshow 20s linear infinite;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes slideshow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(15 23 42);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5e2bff;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Light mode */
+html.light {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+html.light body {
+  color: #333;
+  background: transparent;
+}
+
+html.light .glass-effect {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(94, 43, 255, 0.2);
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light p,
+html.light a {
+  color: #333;
+}
