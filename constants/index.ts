@@ -65,7 +65,7 @@ export const PROJECTS = [
     description:
       "Sistema web de gestión de ventas (POS) para comercios, con control completo de productos, ventas, tickets y reportes. Solución centralizada para administración comercial.",
     image: "/img/images/vendimax.png",
-    link: "#",
+    link: "https://vendimax-ff4l.vercel.app/",
     stack: ["React", "Node.js", "Express", "PostgreSQL"],
     problem: "Comercios que necesitan un sistema simple y centralizado para gestionar ventas",
     solution: "Sistema web con gestión de productos, ventas, reportes y flujos de pago",
