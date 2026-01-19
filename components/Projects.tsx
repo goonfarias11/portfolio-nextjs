@@ -10,7 +10,7 @@ import { useInView } from "@/lib/hooks";
 
 const Projects = memo(function Projects() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref as React.RefObject<HTMLElement>);
 
   const productionProjects = PROJECTS.filter((p: any) => p.inProduction);
   const demoProjects = PROJECTS.filter((p: any) => !p.inProduction);

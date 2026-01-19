@@ -9,7 +9,7 @@ import { useInView } from "@/lib/hooks";
 
 const About = memo(function About() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref as React.RefObject<HTMLElement>);
   
   const { scrollYProgress } = useScroll({
     target: ref,
