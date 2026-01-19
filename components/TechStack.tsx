@@ -8,7 +8,7 @@ import { useInView } from "@/lib/hooks";
 
 const TechStack = memo(function TechStack() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref as React.RefObject<HTMLElement>);
 
   const categories = [
     { key: "frontend", title: "Frontend", color: "purple" },
