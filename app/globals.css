@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 
   body {
-    @apply antialiased bg-slate-950 text-white;
+    @apply bg-slate-950 text-white antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
@@ -70,25 +83,42 @@
   background: #7c3aed;
 }
 
-/* Light mode */
-html.light {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-primary hover:bg-primary-dark rounded-lg font-semibold 
+           transition-all duration-300 shadow-primary hover:shadow-primary-lg
+           hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 glass-effect hover:bg-white/10 rounded-lg font-semibold
+           transition-all duration-300 border-2 border-primary
+           hover:shadow-primary hover:scale-105 active:scale-95;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 ease-smooth
+           hover:-translate-y-2 hover:shadow-primary-lg;
+  }
+  
+  .section-padding {
+    @apply py-20 px-4 md:py-28;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
 }
 
-html.light body {
-  color: #333;
-  background: transparent;
+/* Selección de texto */
+::selection {
+  background: rgba(94, 43, 255, 0.3);
+  color: #fff;
 }
 
-html.light .glass-effect {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(94, 43, 255, 0.2);
-}
-
-html.light h1,
-html.light h2,
-html.light h3,
-html.light p,
-html.light a {
-  color: #333;
+/* Focus visible mejorado */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #5e2bff;
+  border-radius: 4px;
 }

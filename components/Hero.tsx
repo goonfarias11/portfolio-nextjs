@@ -1,91 +1,118 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { memo } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
 import { FaEnvelope, FaDownload } from "react-icons/fa";
+import { fadeIn, fadeInUp, scaleIn } from "@/lib/motion";
 
-export default function Hero() {
+const Hero = memo(function Hero() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
   return (
     <section
       id="home"
       className="min-h-screen flex items-center justify-center px-4 pt-20"
     >
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        {/* Image */}
+        {/* Image with Parallax */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          variants={scaleIn}
+          initial="hidden"
+          animate="show"
+          style={{ y, opacity }}
           className="flex justify-center"
         >
           <div className="relative w-64 h-64 md:w-96 md:h-96 animate-float">
             <Image
               src="/img/logoon.png"
-              alt="Gonzalo Farias Logo"
+              alt="Gonzalo Farias - Desarrollador Web Full Stack"
               fill
               className="object-contain drop-shadow-2xl"
               priority
+              sizes="(max-width: 768px) 256px, 384px"
             />
           </div>
         </motion.div>
 
         {/* Text Content */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={fadeIn("left", 0.3)}
+          initial="hidden"
+          animate="show"
           className="text-center md:text-left"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Soy{" "}
-            <span className="text-gradient">
-              <TypeAnimation
-                sequence={[
-                  "Gonzalo Farias",
-                  2000,
-                  "Desarrollador Web",
-                  2000,
-                  "UI/UX Designer",
-                  2000,
-                  "Frontend Developer",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-              />
+          <motion.h1 
+            variants={fadeInUp}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            Gonzalo Farias{" "}
+            <span className="text-gradient block md:inline">
+              Desarrollador Web Full Stack
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-lg md:text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 mb-8">
-            Desarrollo sitios web modernos, responsivos y optimizados.
-            <br />
-            Transformo ideas en experiencias digitales impactantes.
-          </p>
+          <motion.p 
+            variants={fadeInUp}
+            className="text-lg md:text-xl text-gray-300 mb-4"
+          >
+            Creo sitios web <strong className="text-purple-400">rápidos, accesibles y optimizados para SEO</strong> que convierten visitantes en clientes.
+          </motion.p>
+          
+          <motion.p 
+            variants={fadeInUp}
+            className="text-base md:text-lg text-gray-400 mb-8"
+          >
+            Especializado en <strong>Next.js</strong>, <strong>React</strong> y <strong>TypeScript</strong>. 
+            Transformo tus ideas en experiencias digitales profesionales con código limpio y escalable.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <motion.div 
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          >
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(139, 92, 246, 0.6)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-500/50"
+              className="btn-primary flex items-center justify-center gap-2"
+              aria-label="Iniciar conversación sobre tu proyecto"
             >
-              <FaEnvelope /> Contáctame
+              <FaEnvelope aria-hidden="true" /> Hablemos de tu proyecto
             </motion.a>
 
             <motion.a
-              href="/pdf/Curriculum - Gonzalo Farias.pdf"
-              download="CV - Gonzalo Farias"
+              href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 glass-effect hover:bg-white/10 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all border-2 border-purple-500"
+              className="btn-secondary flex items-center justify-center gap-2"
+              aria-label="Ver proyectos realizados"
             >
-              <FaDownload /> Descargar CV
+              Ver mi trabajo
             </motion.a>
-          </div>
+          </motion.div>
+          
+          <motion.div
+            variants={fadeInUp}
+            className="mt-6 text-center md:text-left"
+          >
+            <a
+              href="/pdf/Curriculum - Gonzalo Farias.pdf"
+              download="CV - Gonzalo Farias"
+              className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-purple-400 transition-colors"
+              aria-label="Descargar currículum en PDF"
+            >
+              <FaDownload aria-hidden="true" /> Descargar CV
+            </a>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
-}
+});
+
+Hero.displayName = "Hero";
+
+export default Hero;

@@ -1,67 +1,33 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { FaCode, FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
+import { useState, useEffect, memo, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaCode, FaBars, FaTimes } from "react-icons/fa";
+import { NAV_LINKS } from "@/constants";
+import { navVariants, fadeInDown, staggerFast } from "@/lib/motion";
+import { useActiveSection, useScrolled } from "@/lib/hooks";
 
-const navLinks = [
-  { href: "#home", label: "INICIO" },
-  { href: "#services", label: "SERVICIOS" },
-  { href: "#projects", label: "PROYECTOS" },
-  { href: "#about", label: "SOBRE MÍ" },
-  { href: "#contact", label: "CONTACTO" },
-];
-
-export default function Navigation() {
+const Navigation = memo(function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("#home");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  
+  const scrolled = useScrolled(20);
+  const activeSection = useActiveSection(NAV_LINKS.map(link => link.href));
 
-  useEffect(() => {
-    const savedTheme = (localStorage.getItem("theme") as "dark" | "light") || "dark";
-    setTheme(savedTheme);
-    
-    if (savedTheme === "light") {
-      document.documentElement.classList.add("light");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    
-    if (newTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navLinks.map(link => link.href.substring(1));
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 200 && rect.bottom >= 200;
-        }
-        return false;
-      });
-      if (current) setActiveSection(`#${current}`);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  const toggleMenu = useCallback(() => {
+    setIsOpen(prev => !prev);
   }, []);
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 glass-effect"
+        variants={navVariants}
+        initial="hidden"
+        animate="show"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? "glass-effect shadow-lg" : "bg-black/10 backdrop-blur-sm"
+        }`}
+        role="navigation"
+        aria-label="Navegación principal"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -75,84 +41,88 @@ export default function Navigation() {
             </div>
 
             {/* Desktop Menu */}
-            <ul className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className={`relative text-sm font-medium transition-colors hover:text-purple-400 ${
-                      activeSection === link.href
-                        ? "text-purple-400"
-                        : "text-white"
-                    }`}
-                  >
-                    {link.label}
-                    {activeSection === link.href && (
-                      <motion.div
-                        layoutId="activeSection"
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-500"
-                      />
-                    )}
-                  </a>
-                </li>
+            <motion.div 
+              className="hidden md:flex items-center space-x-1"
+              variants={staggerFast}
+              initial="hidden"
+              animate="show"
+            >
+              {NAV_LINKS.map((link) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  variants={fadeInDown}
+                  whileHover="hover"
+                  whileTap="tap"
+                  className={`px-4 py-2 rounded-lg transition-colors ${
+                    activeSection === link.href
+                      ? "text-purple-400 bg-purple-500/10"
+                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                  }`}
+                  aria-current={activeSection === link.href ? "page" : undefined}
+                >
+                  {link.label}
+                </motion.a>
               ))}
-            </ul>
+            </motion.div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-white text-2xl"
+            <motion.button
+              onClick={toggleMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+              aria-label="Menú de navegación"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              {isOpen ? <FaTimes /> : <FaBars />}
-            </button>
+              {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+            </motion.button>
           </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu */}
+      <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-effect"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden fixed top-20 left-0 right-0 z-40 glass-effect border-t border-white/10"
           >
-            <ul className="px-4 py-4 space-y-4">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block text-sm font-medium transition-colors ${
-                      activeSection === link.href
-                        ? "text-purple-400"
-                        : "text-white"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
+            <motion.div 
+              className="px-4 py-6 space-y-3"
+              variants={staggerFast}
+              initial="hidden"
+              animate="show"
+            >
+              {NAV_LINKS.map((link) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  variants={fadeInDown}
+                  onClick={toggleMenu}
+                  className={`block px-4 py-3 rounded-lg transition-colors ${
+                    activeSection === link.href
+                      ? "text-purple-400 bg-purple-500/10"
+                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                  }`}
+                  aria-current={activeSection === link.href ? "page" : undefined}
+                >
+                  {link.label}
+                </motion.a>
               ))}
-            </ul>
+            </motion.div>
           </motion.div>
         )}
-      </motion.nav>
-
-      {/* Theme Toggle Button */}
-      <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={toggleTheme}
-        className="fixed top-24 right-6 z-50 p-3 rounded-full glass-effect border-2 border-purple-500 hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-        aria-label="Toggle theme"
-      >
-        {theme === "dark" ? (
-          <FaMoon className="text-white text-xl" />
-        ) : (
-          <FaSun className="text-yellow-500 text-xl" />
-        )}
-      </motion.button>
+      </AnimatePresence>
     </>
   );
-}
+});
+
+Navigation.displayName = "Navigation";
+
+export default Navigation;
