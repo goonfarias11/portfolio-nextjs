@@ -49,7 +49,7 @@ export const PROJECTS = [
     title: "GeneradorCV",
     description:
       "Plataforma SaaS para crear CVs profesionales de forma simple, rápida y guiada. Sistema completo con flujo intuitivo, generación dinámica de contenido y exportación lista para usar.",
-    image: "/img/images/img-1.png",
+    image: "/img/images/generadorcv.png",
     link: "https://www.generadorcv.online/",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     problem: "Personas que necesitan un CV profesional sin conocimientos de diseño ni redacción",
@@ -64,7 +64,7 @@ export const PROJECTS = [
     title: "VendiMax",
     description:
       "Sistema web de gestión de ventas (POS) para comercios, con control completo de productos, ventas, tickets y reportes. Solución centralizada para administración comercial.",
-    image: "/img/images/img-2.png",
+    image: "/img/images/vendimax.png",
     link: "#",
     stack: ["React", "Node.js", "Express", "PostgreSQL"],
     problem: "Comercios que necesitan un sistema simple y centralizado para gestionar ventas",
