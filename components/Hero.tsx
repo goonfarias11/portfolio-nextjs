@@ -1,31 +1,26 @@
 "use client";
 
 import { memo } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaEnvelope, FaDownload } from "react-icons/fa";
-import { fadeIn, fadeInUp, scaleIn } from "@/lib/motion";
+import { fadeIn, fadeInUp } from "@/lib/motion";
 
 const Hero = memo(function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   return (
     <section
       id="home"
       className="min-h-screen flex items-center justify-center px-4 pt-20"
     >
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        {/* Image with Parallax */}
+        {/* Logo */}
         <motion.div
-          variants={scaleIn}
+          variants={fadeIn("right", 0.2)}
           initial="hidden"
           animate="show"
-          style={{ y, opacity }}
           className="flex justify-center"
         >
-          <div className="relative w-64 h-64 md:w-96 md:h-96 animate-float">
+          <div className="relative w-64 h-64 md:w-96 md:h-96">
             <Image
               src="/img/logoon.png"
               alt="Gonzalo Farias - Desarrollador Web Full Stack"
