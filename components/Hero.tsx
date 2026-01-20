@@ -22,7 +22,7 @@ const Hero = memo(function Hero() {
         >
           <div className="relative w-64 h-64 md:w-96 md:h-96">
             <Image
-              src="/img/logoon.png"
+              src="/img/logoon.jpg"
               alt="Gonzalo Farias - Desarrollador Web Full Stack"
               fill
               className="object-contain drop-shadow-2xl"
