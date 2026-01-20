@@ -38,7 +38,7 @@ const About = memo(function About() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="flex justify-center"
+            className="flex justify-center order-2 lg:order-1"
           >
             <motion.div 
               style={{ y }}
@@ -56,7 +56,7 @@ const About = memo(function About() {
           </motion.div>
 
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 order-1 lg:order-2">
             <motion.div
               variants={fadeIn("left", 0.3)}
               initial="hidden"
