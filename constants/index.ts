@@ -1,7 +1,7 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 // Cache busting version - update this timestamp to force image refresh
-export const CACHE_VERSION = "1738441300";
+export const CACHE_VERSION = "1738442000";
 
 export const NAV_LINKS = [
   { href: "#home", label: "INICIO" },
@@ -19,7 +19,7 @@ export const SERVICES = [
     description:
       "Sitios web que se adaptan perfectamente a cualquier dispositivo. Optimizados para móviles, tablets y desktop con diseño moderno y experiencia de usuario fluida.",
     image:
-      "/img/images/service-responsive.png",
+      "https://img.freepik.com/foto-gratis/especialista-ti-revisando-codigo-computadora-oscura-oficina-noche_1098-18699.jpg?w=826&t=1738442000",
     link: "https://www.iebschool.com/blog/que-es-responsive-web-design-analitica-usabilidad/",
     benefits: ["Mobile-first", "UX optimizada", "Carga rápida"]
   },
@@ -29,7 +29,7 @@ export const SERVICES = [
     description:
       "Desarrollo completo de aplicaciones web con Next.js, React y TypeScript. Desde landing pages hasta aplicaciones complejas con backend integrado y bases de datos.",
     image:
-      "/img/images/service-development.png",
+      "https://img.freepik.com/foto-gratis/programador-profesional-trabajando-tarde-oscura-oficina_1098-18705.jpg?w=826&t=1738442000",
     link: "https://es.wikipedia.org/wiki/Dise%C3%B1o_web",
     benefits: ["Next.js y React", "TypeScript", "Escalable"]
   },
@@ -39,7 +39,7 @@ export const SERVICES = [
     description:
       "Mejoro la velocidad, accesibilidad y posicionamiento en buscadores de tu sitio web. Core Web Vitals optimizados, código limpio y estructura semántica correcta.",
     image:
-      "/img/images/service-optimization.png",
+      "https://img.freepik.com/foto-gratis/imagen-primer-plano-programador-trabajando-su-escritorio-oficina_1098-18707.jpg?size=626&ext=jpg&ga=GA1.2.2074902052.1629594733&t=1738442000",
     link: "https://grupovisuallab.com/por-que-es-importante-actualizar-tu-pagina-web/",
     benefits: ["SEO técnico", "Performance", "Accesibilidad"]
   },
