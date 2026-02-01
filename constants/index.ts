@@ -1,5 +1,8 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
+// Cache busting version - update this timestamp to force image refresh
+export const CACHE_VERSION = "1738441300";
+
 export const NAV_LINKS = [
   { href: "#home", label: "INICIO" },
   { href: "#services", label: "SERVICIOS" },
@@ -65,7 +68,7 @@ export const PROJECTS = [
     description:
       "Sistema web de gestión de ventas (POS) para comercios, con control completo de productos, ventas, tickets y reportes. Solución centralizada para administración comercial.",
     image: "/img/images/vendimax.png",
-    link: "https://vendimax-ff4l.vercel.app/",
+    link: "#",
     stack: ["React", "Node.js", "Express", "PostgreSQL"],
     problem: "Comercios que necesitan un sistema simple y centralizado para gestionar ventas",
     solution: "Sistema web con gestión de productos, ventas, reportes y flujos de pago",
@@ -73,6 +76,36 @@ export const PROJECTS = [
     isOwn: true,
     responsibility: "Desarrollo completo del sistema",
     result: "Sistema funcional en uso y en evolución continua"
+  },
+  {
+    id: "sorteo",
+    title: "Sorteo",
+    description:
+      "Plataforma de sorteos online con autenticación, gestión de participantes y creación de campañas. Flujo simple y seguro para administrar sorteos en minutos.",
+    image: "/img/images/sorteo.png",
+    link: "https://sorteo-amber-nine.vercel.app",
+    stack: ["Next.js", "React", "TypeScript", "Prisma", "NextAuth"],
+    problem: "Necesidad de gestionar sorteos online de forma rápida y confiable",
+    solution: "Web app con autenticación, panel de gestión y creación de sorteos",
+    inProduction: true,
+    isOwn: true,
+    responsibility: "Desarrollo full stack y despliegue",
+    result: "Producto en producción listo para uso real"
+  },
+  {
+    id: "torneo-saas",
+    title: "Torneo SaaS",
+    description:
+      "Sistema SaaS para organizar torneos con equipos, fixtures y resultados. Panel administrativo con gestión completa de temporadas y participantes.",
+    image: "/img/images/torneo.png",
+    link: "https://torneo-saas.vercel.app",
+    stack: ["Next.js", "React", "TypeScript", "Prisma", "Tailwind CSS"],
+    problem: "Organizar torneos sin herramientas centrales ni seguimiento claro",
+    solution: "Plataforma con panel de administración, fixtures y resultados",
+    inProduction: true,
+    isOwn: true,
+    responsibility: "Desarrollo full stack y despliegue",
+    result: "Sistema en producción con flujo completo de torneo"
   },
   
   // PROYECTOS DE PRÁCTICA Y DEMOS

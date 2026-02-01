@@ -57,15 +57,31 @@ const Contact = memo(function Contact() {
     if (validateForm()) {
       setStatus("loading");
 
-      // Simulate API call
-      setTimeout(() => {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-        setErrors({});
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
 
-        // Reset status after 5 seconds
+        if (response.ok) {
+          setStatus("success");
+          setFormData({ name: "", email: "", message: "" });
+          setErrors({});
+
+          // Reset status after 5 seconds
+          setTimeout(() => setStatus("idle"), 5000);
+        } else {
+          setStatus("error");
+          setTimeout(() => setStatus("idle"), 5000);
+        }
+      } catch (error) {
+        console.error('Error al enviar:', error);
+        setStatus("error");
         setTimeout(() => setStatus("idle"), 5000);
-      }, 2000);
+      }
     }
   }, [formData, validateForm]);
 
@@ -274,6 +290,21 @@ const Contact = memo(function Contact() {
                 <FaCheckCircle className="text-xl flex-shrink-0" />
                 <span className="font-medium">
                   ¡Mensaje enviado exitosamente! Te responderé pronto.
+                </span>
+              </motion.div>
+            )}
+            {status === "error" && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="p-4 bg-red-500/20 border border-red-500 rounded-lg flex items-center gap-2 text-red-400"
+                role="status"
+                aria-live="polite"
+              >
+                <FaExclamationCircle className="text-xl flex-shrink-0" />
+                <span className="font-medium">
+                  Error al enviar el mensaje. Por favor intenta de nuevo.
                 </span>
               </motion.div>
             )}

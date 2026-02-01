@@ -139,7 +139,7 @@ const Footer = memo(function Footer() {
             className="text-gray-500 text-xs mt-2"
             whileHover={{ scale: 1.05 }}
           >
-            Desarrollado con ❤️ usando Next.js 15 & Tailwind CSS
+            Desarrollado con ⚡ usando Next.js 15 & Tailwind CSS
           </motion.p>
         </motion.div>
       </div>
