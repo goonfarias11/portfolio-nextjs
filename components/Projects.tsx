@@ -4,7 +4,7 @@ import { memo, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaExternalLinkAlt, FaGlobe, FaRocket, FaCode } from "react-icons/fa";
-import { PROJECTS, CACHE_VERSION } from "@/constants";
+import { PROJECTS } from "@/constants";
 import { fadeInUp, staggerContainer, zoomIn } from "@/lib/motion";
 import { useInView } from "@/lib/hooks";
 
@@ -79,7 +79,7 @@ const Projects = memo(function Projects() {
                     <FaRocket /> EN PRODUCCIÓN
                   </div>
                   <Image
-                    src={`${project.image}?v=${CACHE_VERSION}`}
+                    src={project.image}
                     alt={`${project.title} - Producto en producción`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -177,7 +177,7 @@ const Projects = memo(function Projects() {
               >
                 <div className="relative h-56 overflow-hidden bg-gray-900">
                   <Image
-                    src={`${project.image}?v=${CACHE_VERSION}`}
+                    src={project.image}
                     alt={`${project.title} - Captura de pantalla del proyecto`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
