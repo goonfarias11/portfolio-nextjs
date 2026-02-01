@@ -1,7 +1,7 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 // Cache busting version - update this timestamp to force image refresh
-export const CACHE_VERSION = "1738442000";
+export const CACHE_VERSION = "1738442500";
 
 export const NAV_LINKS = [
   { href: "#home", label: "INICIO" },
