@@ -70,7 +70,7 @@ export const PROJECTS = [
     description:
       "Sistema de punto de venta completo para comercios pequeños y medianos. Gestiona inventario, registra ventas, emite tickets y genera reportes de ingresos. Solución centralizada que reemplaza registros manuales y hojas de cálculo.",
     image: "/img/images/vendimax.png",
-    link: "#",
+    link: "https://vendimax-ff4l.vercel.app/",
     stack: ["React", "Node.js", "Express", "PostgreSQL"],
     problem: "Comercios sin herramientas digitales pierden tiempo en control manual, no tienen visibilidad de inventario ni reportes confiables de ingresos.",
     solution: "Sistema web full-stack con backend robusto, base de datos relacional, gestión de productos, registro de ventas y módulo de reportes en tiempo real.",
