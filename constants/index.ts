@@ -46,224 +46,102 @@ export const SERVICES = [
 ] as const;
 
 export const PROJECTS = [
-  // PROYECTOS EN PRODUCCIÓN
+  // 🚀 PRODUCTO ESTRELLA
   {
     id: "generadorcv",
     title: "GeneradorCV",
     description:
-      "Plataforma SaaS para crear CVs profesionales de forma simple, rápida y guiada. Sistema completo con flujo intuitivo, generación dinámica de contenido y exportación lista para usar.",
+      "SaaS completo que permite a profesionales crear CVs optimizados en minutos sin conocimientos de diseño. El usuario responde preguntas guiadas y el sistema genera contenido profesional listo para exportar.",
     image: "/img/images/generadorcv.png",
     link: "https://www.generadorcv.online/",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    problem: "Personas que necesitan un CV profesional sin conocimientos de diseño ni redacción",
-    solution: "Web app con flujo guiado, generación dinámica y exportación profesional",
+    problem: "Miles de personas necesitan un CV profesional pero no tienen tiempo ni conocimientos de diseño y redacción corporativa.",
+    solution: "Web app con flujo guiado paso a paso, generación automática de contenido profesional y exportación en formato optimizado para ATS.",
     inProduction: true,
     isOwn: true,
-    responsibility: "Desarrollo completo del proyecto (frontend, lógica y despliegue)",
-    result: "Producto funcionando en producción con usuarios reales"
+    responsibility: "Producto desarrollado 100% por mí: arquitectura, frontend, lógica de negocio, UX y deployment en producción.",
+    result: "Producto SaaS funcionando con usuarios reales. Conversión activa de visitantes a CVs generados."
   },
+
+  // 💼 FULL-STACK BUSINESS APPS
   {
     id: "vendimax",
-    title: "VendiMax",
+    title: "VendiMax - Sistema POS",
     description:
-      "Sistema web de gestión de ventas (POS) para comercios, con control completo de productos, ventas, tickets y reportes. Solución centralizada para administración comercial.",
+      "Sistema de punto de venta completo para comercios pequeños y medianos. Gestiona inventario, registra ventas, emite tickets y genera reportes de ingresos. Solución centralizada que reemplaza registros manuales y hojas de cálculo.",
     image: "/img/images/vendimax.png",
     link: "#",
     stack: ["React", "Node.js", "Express", "PostgreSQL"],
-    problem: "Comercios que necesitan un sistema simple y centralizado para gestionar ventas",
-    solution: "Sistema web con gestión de productos, ventas, reportes y flujos de pago",
+    problem: "Comercios sin herramientas digitales pierden tiempo en control manual, no tienen visibilidad de inventario ni reportes confiables de ingresos.",
+    solution: "Sistema web full-stack con backend robusto, base de datos relacional, gestión de productos, registro de ventas y módulo de reportes en tiempo real.",
     inProduction: true,
     isOwn: true,
-    responsibility: "Desarrollo completo del sistema",
-    result: "Sistema funcional en uso y en evolución continua"
-  },
-  {
-    id: "sorteo",
-    title: "Sorteo",
-    description:
-      "Plataforma de sorteos online con autenticación, gestión de participantes y creación de campañas. Flujo simple y seguro para administrar sorteos en minutos.",
-    image: "/img/images/sorteo.png",
-    link: "https://sorteo-amber-nine.vercel.app",
-    stack: ["Next.js", "React", "TypeScript", "Prisma", "NextAuth"],
-    problem: "Necesidad de gestionar sorteos online de forma rápida y confiable",
-    solution: "Web app con autenticación, panel de gestión y creación de sorteos",
-    inProduction: true,
-    isOwn: true,
-    responsibility: "Desarrollo full stack y despliegue",
-    result: "Producto en producción listo para uso real"
+    responsibility: "Desarrollo completo: arquitectura backend, diseño de base de datos, lógica comercial, frontend y flujos de negocio.",
+    result: "Sistema funcional usado por comercios reales. Iteración continua basada en feedback de usuarios."
   },
   {
     id: "torneo-saas",
     title: "Torneo SaaS",
     description:
-      "Sistema SaaS para organizar torneos con equipos, fixtures y resultados. Panel administrativo con gestión completa de temporadas y participantes.",
+      "Plataforma multi-tenant para organizar y gestionar torneos deportivos. Cada organizador tiene su panel administrativo donde crea equipos, genera fixtures automáticos, registra resultados y publica tablas de posiciones en tiempo real.",
     image: "/img/images/torneo.png",
     link: "https://torneo-saas.vercel.app",
     stack: ["Next.js", "React", "TypeScript", "Prisma", "Tailwind CSS"],
-    problem: "Organizar torneos sin herramientas centrales ni seguimiento claro",
-    solution: "Plataforma con panel de administración, fixtures y resultados",
+    problem: "Organizadores de torneos usan herramientas dispersas (Excel, WhatsApp, grupos) sin centralización ni transparencia para participantes.",
+    solution: "SaaS con autenticación, panel de administración, generación automática de fixtures, seguimiento de partidos y publicación pública de resultados.",
     inProduction: true,
     isOwn: true,
-    responsibility: "Desarrollo full stack y despliegue",
-    result: "Sistema en producción con flujo completo de torneo"
+    responsibility: "Arquitectura SaaS completa: autenticación, ORM con Prisma, lógica de torneos, frontend y deployment.",
+    result: "Producto funcionando en producción con capacidad multi-tenant. Escalable a múltiples organizadores."
   },
-  
-  // PROYECTOS DE PRÁCTICA Y DEMOS
+
+  // 🎯 PROYECTOS COMPLEMENTARIOS
   {
-    id: 1,
-    title: "Stable - Sitio Corporativo",
+    id: "sorteo",
+    title: "Sorteo Online",
     description:
-      "Plataforma corporativa desarrollada para comunicar valores de marca y compromiso social. Implementa navegación intuitiva, secciones optimizadas para SEO y diseño responsivo.",
-    image: "/img/images/img-1.png",
-    link: "https://goonfarias11.github.io/Pagina-Name-Stable/",
-    stack: ["HTML5", "CSS3", "JavaScript"],
-    problem: "Necesidad de presencia digital profesional y moderna",
-    solution: "Sitio web corporativo con diseño elegante y contenido estructurado",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 2,
-    title: "Union - Plataforma Comercial",
-    description:
-      "E-commerce optimizado para conversión con catálogo de productos dinámico. Incluye sistema de navegación fluida, carrito de compras y diseño enfocado en la experiencia del usuario.",
-    image: "/img/images/img-2.png",
-    link: "https://goonfarias11.github.io/Pagina-Name-Union/",
-    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    problem: "Venta online eficiente con buena UX",
-    solution: "Plataforma comercial con gestión de productos y checkout optimizado",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 3,
-    title: "WebRes - Portfolio Creativo",
-    description:
-      "Portfolio personal con animaciones modernas y diseño innovador. Showcase de proyectos creativos con transiciones suaves, galería interactiva y navegación optimizada.",
-    image: "/img/images/img-3.png",
-    link: "https://goonfarias11.github.io/Pagina-Name-WebRes/",
-    stack: ["HTML5", "CSS3", "JavaScript", "SASS"],
-    problem: "Destacar proyectos creativos de forma atractiva",
-    solution: "Portfolio con animaciones modernas y diseño impactante",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 4,
-    title: "Fearless - Agencia Digital",
-    description:
-      "Sitio para agencia de marketing digital especializada en branding y diseño web. Presenta servicios de forma clara con secciones optimizadas para conversión y casos de éxito.",
-    image: "/img/images/img-4.png",
-    link: "https://goonfarias11.github.io/Page-Name-Fearless/",
-    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    problem: "Mostrar servicios digitales de forma profesional",
-    solution: "Sitio de agencia con portfolio completo y CTAs estratégicos",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 5,
-    title: "Optics - Soluciones Digitales",
-    description:
-      "Plataforma B2B para servicios empresariales con múltiples soluciones integradas. Sistema de gestión de contenido eficiente y atención al cliente en tiempo real.",
-    image: "/img/images/img-5.png",
-    link: "https://goonfarias11.github.io/Page-Name-Optics/",
-    stack: ["HTML5", "CSS3", "JavaScript"],
-    problem: "Centralizar múltiples servicios empresariales",
-    solution: "Plataforma integral con gestión y atención unificada",
-    inProduction: false,
-    isOwn: false
+      "App web para crear y gestionar sorteos digitales. Los usuarios se autentican, crean campañas de sorteo, agregan participantes y ejecutan sorteos aleatorios con transparencia y trazabilidad.",
+    image: "/img/images/sorteo.png",
+    link: "https://sorteo-amber-nine.vercel.app",
+    stack: ["Next.js", "React", "TypeScript", "Prisma", "NextAuth"],
+    problem: "Marcas y creadores necesitan herramientas confiables para sorteos online sin depender de plataformas externas.",
+    solution: "Web app con autenticación mediante NextAuth, gestión de participantes con Prisma y lógica de sorteo aleatoria verificable.",
+    inProduction: true,
+    isOwn: true,
+    responsibility: "Full-stack development: autenticación, persistencia de datos, lógica de sorteo y frontend.",
+    result: "Producto funcional en producción usado para sorteos reales."
   },
   {
     id: 6,
-    title: "Psycko - Centro de Salud Mental",
+    title: "Psycko - Portal de Salud Mental",
     description:
-      "Sitio informativo para centro de salud mental con programas especializados. Incluye blog educativo, sistema de citas online y recursos para pacientes con navegación accesible.",
+      "Portal informativo para centro de salud mental con contenido educativo, programas terapéuticos y sistema de contacto para pacientes. Diseño accesible enfocado en navegación clara y contenido sensible.",
     image: "/img/images/img-6.png",
     link: "https://goonfarias11.github.io/Page-Name-Hospital-Psycko/",
     stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    problem: "Informar y conectar con pacientes efectivamente",
-    solution: "Portal de salud con blog, programas y sistema de contacto",
+    problem: "Centros de salud mental necesitan presencia digital accesible que transmita profesionalismo y empatía.",
+    solution: "Sitio web con arquitectura de información clara, blog educativo, presentación de programas y formulario de contacto optimizado.",
     inProduction: false,
-    isOwn: false
+    isOwn: true,
+    responsibility: "Diseño, desarrollo frontend y optimización de accesibilidad.",
+    result: "Proyecto que demuestra capacidad de trabajar con nichos sensibles y diseño centrado en usuario."
   },
-  {
-    id: 7,
-    title: "Savory - Experiencia Gastronómica",
-    description:
-      "Web gastronómica con menú digital interactivo, galería visual de alta calidad y sistema de reservas online. Optimizado para dispositivos móviles y carga rápida de imágenes.",
-    image: "/img/images/img-7.png",
-    link: "https://goonfarias11.github.io/Page-Name-Savory/",
-    stack: ["HTML5", "CSS3", "JavaScript", "SASS"],
-    problem: "Presentar menú y facilitar reservas online",
-    solution: "Sitio gastronómico con galería visual y reservas integradas",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 8,
-    title: "DevTeam - Landing Profesional",
-    description:
-      "Landing page de alta conversión para empresa de desarrollo de software. Incluye portfolio de proyectos, testimonios de clientes y call-to-action estratégicamente ubicados.",
-    image: "/img/images/img-8.png",
-    link: "https://goonfarias11.github.io/Landing-Page-01/",
-    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    problem: "Captar leads cualificados para desarrollo",
-    solution: "Landing optimizada con portfolio y CTAs de conversión",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 9,
-    title: "Qzbiz - Blog Empresarial",
-    description:
-      "Template corporativo clásico y profesional para contenido empresarial. Estructura optimizada para SEO, blog integrado y diseño que transmite confianza y autoridad.",
-    image: "/img/images/img-9.png",
-    link: "https://goonfarias11.github.io/Page-Name-Qzbiz/",
-    stack: ["HTML5", "CSS3", "JavaScript"],
-    problem: "Presencia web informativa y profesional",
-    solution: "Template corporativo con blog y diseño clásico",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 10,
-    title: "Twist - Template Versátil",
-    description:
-      "Template multipropósito con diseño simétrico y paleta equilibrada. Adaptable a diferentes tipos de negocio con componentes modulares y código bien estructurado.",
-    image: "/img/images/img-10.png",
-    link: "https://goonfarias11.github.io/Page-Name-Twist/",
-    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    problem: "Solución rápida para diversos tipos de negocio",
-    solution: "Template versátil y adaptable con componentes modulares",
-    inProduction: false,
-    isOwn: false
-  },
-  {
-    id: 11,
-    title: "Bs-Relax - Showcase Premium",
-    description:
-      "Portfolio empresarial minimalista para exhibición de productos y servicios premium. Navegación intuitiva, diseño elegante y enfoque en contenido visual de calidad.",
-    image: "/img/images/img-11.png",
-    link: "https://goonfarias11.github.io/Page-Name-Bs-Relax/",
-    stack: ["HTML5", "CSS3", "JavaScript", "SASS"],
-    problem: "Exhibir productos premium de forma elegante",
-    solution: "Showcase minimalista con navegación intuitiva",
-    inProduction: false,
-    isOwn: false
-  },
+
+  // 🎨 DISEÑO Y UI/UX
   {
     id: 12,
     title: "Thanol - Branding Studio",
     description:
-      "Sitio para estudio creativo especializado en identidad de marca y diseño web. Portfolio visual impactante, casos de estudio detallados y diseño contemporáneo que inspira.",
+      "Showcase digital para estudio de branding y diseño web. Portfolio visual con casos de estudio, galería de proyectos y narrativa enfocada en identidad de marca.",
     image: "/img/images/img-12.png",
     link: "https://goonfarias11.github.io/Page-Name-Thanol/",
     stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    problem: "Mostrar trabajo creativo de forma inspiradora",
-    solution: "Portfolio visual con casos de estudio y diseño contemporáneo",
+    problem: "Estudios creativos necesitan presencia digital que refleje su nivel de diseño y capacidad creativa.",
+    solution: "Sitio web con diseño contemporáneo, portfolio visual impactante y presentación clara de servicios de branding.",
     inProduction: false,
-    isOwn: false
+    isOwn: true,
+    responsibility: "Diseño visual, desarrollo frontend y experiencia de usuario.",
+    result: "Proyecto que demuestra capacidad de UI/UX y diseño visual de alto nivel."
   },
 ] as const;
 
