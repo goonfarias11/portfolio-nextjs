@@ -1,7 +1,7 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 // Cache busting version - update this timestamp to force image refresh
-export const CACHE_VERSION = "1738442500";
+export const CACHE_VERSION = "1777917127";
 
 export const NAV_LINKS = [
   { href: "#home", label: "INICIO" },
@@ -78,6 +78,21 @@ export const PROJECTS = [
     isOwn: true,
     responsibility: "Desarrollo completo: arquitectura backend, diseño de base de datos, lógica comercial, frontend y flujos de negocio.",
     result: "Sistema funcional usado por comercios reales. Iteración continua basada en feedback de usuarios."
+  },
+  {
+    id: "restaurantos",
+    title: "RestaurantOS - Sistema Gastronómico",
+    description:
+      "Sistema de gestión gastronómica para restaurantes con apertura de caja, dashboard operativo, pedidos por mesa o delivery, vista de cocina en tiempo real, control de caja y menú digital QR.",
+    image: "/img/images/restaurantos.png",
+    link: "https://restaurant-amkwaih42-goonfarias11s-projects.vercel.app/",
+    stack: ["React", "Vite", "JavaScript", "CSS"],
+    problem: "Restaurantes pequeños necesitan centralizar pedidos, cocina, delivery y cobros sin depender de planillas o comunicación manual entre áreas.",
+    solution: "Aplicación web con flujo operativo completo: caja abierta, alta de pedidos, seguimiento por estado, panel de cocina, gestión de delivery y control de ingresos por método de pago.",
+    inProduction: true,
+    isOwn: true,
+    responsibility: "Desarrollo completo del frontend, lógica de pedidos, estados operativos, paneles de gestión y deployment en Vercel.",
+    result: "Producto funcionando en producción como demo operativa para gestión integral de restaurantes."
   },
   {
     id: "torneo-saas",
