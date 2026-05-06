@@ -15,33 +15,36 @@ export const NAV_LINKS = [
 export const SERVICES = [
   {
     id: "responsive",
-    title: "Diseño Web Responsivo",
+    title: "Landing Page / Sitio Institucional",
     description:
-      "Sitios web que se adaptan perfectamente a cualquier dispositivo. Optimizados para móviles, tablets y desktop con diseño moderno y experiencia de usuario fluida.",
+      "Sitio web profesional para tu negocio o emprendimiento. Diseño moderno, adaptado a celulares, con formulario de contacto y optimizado para aparecer en Google.",
     image:
       "/img/images/service-responsive.png",
     link: "https://www.iebschool.com/blog/que-es-responsive-web-design-analitica-usabilidad/",
-    benefits: ["Mobile-first", "UX optimizada", "Carga rápida"]
+    benefits: ["Mobile-first", "SEO incluido", "Entrega en 7 días"],
+    price: "Desde $150 USD"
   },
   {
     id: "development",
-    title: "Desarrollo Web Full Stack",
+    title: "Aplicación Web a Medida",
     description:
-      "Desarrollo completo de aplicaciones web con Next.js, React y TypeScript. Desde landing pages hasta aplicaciones complejas con backend integrado y bases de datos.",
+      "Desarrollo completo de sistemas y aplicaciones: tiendas online, paneles de gestión, CRMs, sistemas de turnos o lo que necesite tu negocio. Con base de datos y lógica de negocio incluida.",
     image:
       "/img/images/service-development.png",
     link: "https://es.wikipedia.org/wiki/Dise%C3%B1o_web",
-    benefits: ["Next.js y React", "TypeScript", "Escalable"]
+    benefits: ["Full Stack", "Escalable", "Mantenimiento disponible"],
+    price: "Desde $400 USD"
   },
   {
     id: "optimization",
-    title: "Optimización y SEO Técnico",
+    title: "Mejora y Optimización de Web Existente",
     description:
-      "Mejoro la velocidad, accesibilidad y posicionamiento en buscadores de tu sitio web. Core Web Vitals optimizados, código limpio y estructura semántica correcta.",
+      "¿Tu web es lenta, no aparece en Google o se ve mal en el celular? La reviso, identifico los problemas y la dejo funcionando como debe. Velocidad, SEO técnico y accesibilidad.",
     image:
       "/img/images/service-optimization.png",
     link: "https://grupovisuallab.com/por-que-es-importante-actualizar-tu-pagina-web/",
-    benefits: ["SEO técnico", "Performance", "Accesibilidad"]
+    benefits: ["Diagnóstico gratis", "Resultados medibles", "Sin contratos"],
+    price: "Desde $80 USD"
   },
 ] as const;
 

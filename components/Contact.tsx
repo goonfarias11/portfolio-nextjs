@@ -111,7 +111,7 @@ const Contact = memo(function Contact() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-center mb-4 text-gradient"
         >
-          ¿Tienes un Proyecto en Mente?
+          Hablemos de tu proyecto
         </motion.h2>
 
         <motion.p
@@ -119,9 +119,38 @@ const Contact = memo(function Contact() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center text-gray-300 mb-12"
+          className="text-center text-gray-300 mb-6"
         >
-          Envíame un mensaje y hablemos sobre tu próximo proyecto
+          Contame qué necesitás y te respondo en menos de 24 horas.
+        </motion.p>
+
+        {/* WhatsApp CTA prominente */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mb-8 flex justify-center"
+        >
+          <a
+            href="https://wa.me/5493514000000?text=Hola%20Gonzalo%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20sobre%20mi%20proyecto%20%F0%9F%91%8B"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-6 py-3 bg-green-500/20 border border-green-500/50 text-green-300 rounded-full hover:bg-green-500/30 transition-colors font-medium"
+          >
+            <FaPaperPlane className="text-green-400" />
+            ¿Preferís WhatsApp? Escribime directo →
+          </a>
+        </motion.div>
+
+        <motion.p
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center text-gray-500 text-sm mb-10"
+        >
+          O completá el formulario y te escribo yo a vos:
         </motion.p>
 
         <motion.form

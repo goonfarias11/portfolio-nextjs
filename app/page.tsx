@@ -23,6 +23,12 @@ const Contact = dynamic(() => import("@/components/Contact"), {
 const Footer = dynamic(() => import("@/components/Footer"), {
   loading: () => <div className="h-64" />,
 });
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"), {
+  ssr: false,
+});
+const SocialProof = dynamic(() => import("@/components/SocialProof"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
 
 export default function Home() {
   return (
@@ -40,10 +46,12 @@ export default function Home() {
       <Hero />
       <Services />
       <Projects />
+      <SocialProof />
       <TechStack />
       <About />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }
