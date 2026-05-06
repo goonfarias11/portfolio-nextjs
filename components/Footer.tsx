@@ -2,8 +2,14 @@
 
 import { memo } from "react";
 import { motion } from "framer-motion";
+import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { SOCIAL_LINKS } from "@/constants";
 import { fadeInUp, staggerFast } from "@/lib/motion";
+
+const WHATSAPP_NUMBER = "5493514000000";
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋"
+);
 
 const Footer = memo(function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,45 +24,37 @@ const Footer = memo(function Footer() {
           viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8 mb-8"
         >
-          {/* Services */}
+          {/* Contact directo */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold mb-4 text-white">Servicios</h3>
-            <nav aria-label="Servicios">
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
-                  >
-                    Diseño Responsivo
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
-                  >
-                    Actualización Web
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
-                  >
-                    Desarrollo Completo
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <h3 className="text-xl font-bold mb-4 text-white">Contacto directo</h3>
+            <div className="space-y-3">
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group"
+              >
+                <FaWhatsapp className="text-green-400 text-xl flex-shrink-0" />
+                <span className="group-hover:underline underline-offset-2">WhatsApp</span>
+              </a>
+              <a
+                href="mailto:gonzalofarias.dev@gmail.com"
+                className="flex items-center gap-3 text-gray-300 hover:text-purple-400 transition-colors group"
+              >
+                <FaEnvelope className="text-purple-400 text-lg flex-shrink-0" />
+                <span className="group-hover:underline underline-offset-2 text-sm">gonzalofarias.dev@gmail.com</span>
+              </a>
+              <p className="text-gray-500 text-xs mt-2">Respondo en menos de 24hs · Córdoba, Argentina</p>
+            </div>
           </motion.div>
 
           {/* Social Icons */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
-            className="flex justify-center items-center"
+            className="flex flex-col items-center justify-center gap-4"
           >
-            <motion.div 
+            <p className="text-gray-400 text-sm font-medium">Seguime en redes</p>
+            <motion.div
               variants={staggerFast}
               initial="hidden"
               whileInView="show"
@@ -74,11 +72,7 @@ const Footer = memo(function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={fadeInUp}
-                    whileHover={{ 
-                      scale: 1.2, 
-                      y: -5,
-                      color: "#a78bfa"
-                    }}
+                    whileHover={{ scale: 1.2, y: -5, color: "#a78bfa" }}
                     whileTap={{ scale: 0.9 }}
                     className="text-3xl text-gray-300 transition-colors"
                     aria-label={`Visitar perfil de ${social.name}`}
@@ -90,35 +84,27 @@ const Footer = memo(function Footer() {
             </motion.div>
           </motion.div>
 
-          {/* Information */}
+          {/* Navigation */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold mb-4 text-white">Información</h3>
-            <nav aria-label="Información adicional">
+            <h3 className="text-xl font-bold mb-4 text-white">Navegación</h3>
+            <nav aria-label="Navegación footer">
               <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#about"
-                    className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
-                  >
-                    Sobre Mí
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#projects"
-                    className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
-                  >
-                    Proyectos
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
-                  >
-                    Contacto
-                  </a>
-                </li>
+                {[
+                  { href: "#services", label: "Servicios y precios" },
+                  { href: "#projects", label: "Proyectos" },
+                  { href: "#testimonials", label: "Testimonios" },
+                  { href: "#about", label: "Sobre mí" },
+                  { href: "#contact", label: "Contacto" },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-gray-300 hover:text-purple-400 transition-colors inline-block hover:translate-x-1"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </nav>
           </motion.div>
@@ -135,12 +121,9 @@ const Footer = memo(function Footer() {
           <p className="text-gray-400 text-sm">
             © {currentYear} Gonzalo Farias. Todos los derechos reservados.
           </p>
-          <motion.p 
-            className="text-gray-500 text-xs mt-2"
-            whileHover={{ scale: 1.05 }}
-          >
+          <p className="text-gray-500 text-xs mt-2">
             Desarrollado con ⚡ usando Next.js 15 & Tailwind CSS
-          </motion.p>
+          </p>
         </motion.div>
       </div>
     </footer>

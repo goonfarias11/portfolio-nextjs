@@ -70,30 +70,38 @@ const About = memo(function About() {
               </h3>
               <div className="text-gray-300 leading-relaxed space-y-4">
                 <p>
-                  Soy un <strong>desarrollador web full stack</strong> especializado en crear
-                  sitios web que no solo se ven bien, sino que <strong>convierten visitantes en clientes</strong>.
-                  Mi enfoque está en el rendimiento, la accesibilidad y el SEO técnico.
+                  Soy Gonzalo, desarrollador web de <strong>La Calera, Córdoba</strong>. 
+                  Trabajo con negocios y emprendedores que necesitan presencia digital profesional 
+                  sin pagar precios de agencia ni esperar meses.
                 </p>
                 <p>
-                  Trabajo con <strong>Next.js, React y TypeScript</strong> para construir
-                  aplicaciones web modernas y escalables. Cada proyecto lo abordo pensando en
-                  la experiencia del usuario final y los objetivos de negocio del cliente.
+                  Arranqué desarrollando proyectos propios — un <strong>sistema POS para comercios</strong>, 
+                  una <strong>plataforma SaaS para torneos</strong>, un <strong>generador de CVs</strong> — 
+                  y hoy aplico esa misma mentalidad a cada proyecto de cliente: construir algo 
+                  que funcione de verdad, no solo que se vea bien.
                 </p>
                 <p>
-                  <strong>Mi proceso de trabajo:</strong>
+                  <strong>Lo que podés esperar si trabajamos juntos:</strong>
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-gray-400">
-                  <li>Análisis de requerimientos y objetivos del proyecto</li>
-                  <li>Diseño de la arquitectura y planificación técnica</li>
-                  <li>Desarrollo iterativo con feedback constante</li>
-                  <li>Testing, optimización y despliegue</li>
-                  <li>Documentación y soporte post-lanzamiento</li>
+                <ul className="list-none space-y-2 text-gray-400">
+                  <li>✅ Comunicación clara en todo momento, sin vueltas técnicas</li>
+                  <li>✅ Entrega en tiempo y forma, con plazos reales</li>
+                  <li>✅ Precios transparentes antes de empezar</li>
+                  <li>✅ Soporte post-entrega incluido</li>
+                  <li>✅ Sitio optimizado para Google desde el día uno</li>
                 </ul>
-                <p>
-                  Me mantengo actualizado con las últimas tecnologías y mejores prácticas
-                  de la industria. Creo en el código limpio, la comunicación clara y
-                  la entrega de valor real en cada línea de código.
-                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-6 pt-6 border-t border-purple-500/20">
+                <a
+                  href={`https://wa.me/5493514000000?text=${encodeURIComponent("Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-purple-600/30 border border-purple-500/50 text-purple-300 rounded-full hover:bg-purple-600/50 transition-colors font-medium text-sm"
+                >
+                  ¿Tenés un proyecto? Hablemos →
+                </a>
               </div>
             </motion.div>
           </div>
