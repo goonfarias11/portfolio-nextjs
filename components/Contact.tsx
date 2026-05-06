@@ -124,22 +124,29 @@ const Contact = memo(function Contact() {
           Contame qué necesitás y te respondo en menos de 24 horas.
         </motion.p>
 
-        {/* WhatsApp CTA prominente */}
+        {/* Opciones de contacto directo */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mb-8 flex justify-center"
+          className="mb-8 flex flex-col sm:flex-row gap-3 justify-center"
         >
           <a
-            href="https://wa.me/5493514000000?text=Hola%20Gonzalo%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20sobre%20mi%20proyecto%20%F0%9F%91%8B"
+            href="https://wa.me/5493543515007?text=Hola%20Gonzalo%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20sobre%20mi%20proyecto%20%F0%9F%91%8B"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 bg-green-500/20 border border-green-500/50 text-green-300 rounded-full hover:bg-green-500/30 transition-colors font-medium"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-400 text-white font-semibold rounded-full transition-colors"
           >
-            <FaPaperPlane className="text-green-400" />
-            ¿Preferís WhatsApp? Escribime directo →
+            <FaPaperPlane />
+            WhatsApp — +54 9 3543 515007
+          </a>
+          <a
+            href="mailto:gonfarias6@gmail.com"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-white/10 border border-white/20 text-gray-300 hover:text-white hover:bg-white/20 font-medium rounded-full transition-colors"
+          >
+            <FaCheckCircle className="text-purple-400" />
+            gonfarias6@gmail.com
           </a>
         </motion.div>
 
@@ -150,7 +157,7 @@ const Contact = memo(function Contact() {
           viewport={{ once: true }}
           className="text-center text-gray-500 text-sm mb-10"
         >
-          O completá el formulario y te escribo yo a vos:
+          O completá el formulario y te respondo a tu email:
         </motion.p>
 
         <motion.form

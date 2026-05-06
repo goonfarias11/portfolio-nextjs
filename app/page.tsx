@@ -11,11 +11,17 @@ const Services = dynamic(() => import("@/components/Services"), {
 const Projects = dynamic(() => import("@/components/Projects"), {
   loading: () => <div className="min-h-screen" />,
 });
+const SocialProof = dynamic(() => import("@/components/SocialProof"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
 const TechStack = dynamic(() => import("@/components/TechStack"), {
   loading: () => <div className="min-h-screen" />,
 });
 const About = dynamic(() => import("@/components/About"), {
   loading: () => <div className="min-h-screen" />,
+});
+const FAQ = dynamic(() => import("@/components/FAQ"), {
+  loading: () => <div className="min-h-[400px]" />,
 });
 const Contact = dynamic(() => import("@/components/Contact"), {
   loading: () => <div className="min-h-screen" />,
@@ -26,18 +32,16 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"), {
   ssr: false,
 });
-const SocialProof = dynamic(() => import("@/components/SocialProof"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
 
 export default function Home() {
   return (
     <main className="relative">
-      {/* Background optimizado con animación */}
+      {/* Background */}
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-[#1a0a3a] to-slate-950">
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(94,43,255,0.15),transparent_50%)] animate-pulse" 
-               style={{ animationDuration: "4s" }} 
+          <div
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(94,43,255,0.15),transparent_50%)] animate-pulse"
+            style={{ animationDuration: "4s" }}
           />
         </div>
       </div>
@@ -47,6 +51,7 @@ export default function Home() {
       <Services />
       <Projects />
       <SocialProof />
+      <FAQ />
       <TechStack />
       <About />
       <Contact />

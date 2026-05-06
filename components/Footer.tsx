@@ -6,7 +6,7 @@ import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { SOCIAL_LINKS } from "@/constants";
 import { fadeInUp, staggerFast } from "@/lib/motion";
 
-const WHATSAPP_NUMBER = "5493514000000";
+const WHATSAPP_NUMBER = "5493543515007";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋"
 );
@@ -38,11 +38,11 @@ const Footer = memo(function Footer() {
                 <span className="group-hover:underline underline-offset-2">WhatsApp</span>
               </a>
               <a
-                href="mailto:gonzalofarias.dev@gmail.com"
+                href="mailto:gonfarias6@gmail.com"
                 className="flex items-center gap-3 text-gray-300 hover:text-purple-400 transition-colors group"
               >
                 <FaEnvelope className="text-purple-400 text-lg flex-shrink-0" />
-                <span className="group-hover:underline underline-offset-2 text-sm">gonzalofarias.dev@gmail.com</span>
+                <span className="group-hover:underline underline-offset-2 text-sm">gonfarias6@gmail.com</span>
               </a>
               <p className="text-gray-500 text-xs mt-2">Respondo en menos de 24hs · Córdoba, Argentina</p>
             </div>

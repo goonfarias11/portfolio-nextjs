@@ -83,7 +83,7 @@ const Hero = memo(function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
             <motion.a
-              href="https://wa.me/5493514000000?text=Hola%20Gonzalo%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20sobre%20mi%20proyecto%20%F0%9F%91%8B"
+              href="https://wa.me/5493543515007?text=Hola%20Gonzalo%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20sobre%20mi%20proyecto%20%F0%9F%91%8B"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(34, 197, 94, 0.6)" }}

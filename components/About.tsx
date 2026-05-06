@@ -70,7 +70,7 @@ const About = memo(function About() {
               </h3>
               <div className="text-gray-300 leading-relaxed space-y-4">
                 <p>
-                  Soy Gonzalo, desarrollador web de <strong>La Calera, Córdoba</strong>. 
+                  Soy Gonzalo, desarrollador web de <strong>Córdoba, Argentina</strong>. 
                   Trabajo con negocios y emprendedores que necesitan presencia digital profesional 
                   sin pagar precios de agencia ni esperar meses.
                 </p>
@@ -95,7 +95,7 @@ const About = memo(function About() {
               {/* CTA */}
               <div className="mt-6 pt-6 border-t border-purple-500/20">
                 <a
-                  href={`https://wa.me/5493514000000?text=${encodeURIComponent("Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋")}`}
+                  href={`https://wa.me/5493543515007?text=${encodeURIComponent("Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-purple-600/30 border border-purple-500/50 text-purple-300 rounded-full hover:bg-purple-600/50 transition-colors font-medium text-sm"

@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
@@ -13,25 +13,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portafoliogoon.vercel.app"),
   title: {
-    default: "Gonzalo Farias - Desarrollador Web | Córdoba, Argentina",
+    default: "Gonzalo Farias — Desarrollador Web | Córdoba, Argentina",
     template: "%s | Gonzalo Farias",
   },
   description:
     "Desarrollador web en Córdoba, Argentina. Creo sitios web, tiendas online y sistemas a medida para negocios y emprendedores. Precios claros, entrega rápida. Consultá sin cargo.",
   keywords: [
-    "Gonzalo Farias",
     "desarrollador web Córdoba",
-    "desarrollador web Argentina",
-    "diseño web Córdoba",
-    "páginas web para negocios",
-    "sistemas web a medida",
-    "landing page",
-    "tienda online",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "freelance web developer",
-    "desarrollo web La Calera",
+    "diseño web Córdoba Argentina",
+    "páginas web para negocios Córdoba",
+    "desarrollo web freelance Argentina",
+    "landing page económica Argentina",
+    "sistemas web a medida Córdoba",
+    "tienda online Argentina",
+    "Gonzalo Farias desarrollador",
+    "Next.js React TypeScript",
+    "web profesional para emprendedores",
   ],
   authors: [{ name: "Gonzalo Farias", url: "https://portafoliogoon.vercel.app" }],
   creator: "Gonzalo Farias",
@@ -40,23 +37,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     url: "https://portafoliogoon.vercel.app",
-    title: "Gonzalo Farias - Desarrollador Web en Córdoba",
+    title: "Gonzalo Farias — Desarrollador Web en Córdoba",
     description:
       "Creo sitios web y sistemas a medida para negocios en Córdoba y toda Argentina. Precios claros, entrega rápida. Consultá sin cargo.",
-    siteName: "Gonzalo Farias - Desarrollo Web",
+    siteName: "Gonzalo Farias — Desarrollo Web",
     images: [
       {
         url: "/img/logoon.png",
         width: 1200,
         height: 630,
-        alt: "Gonzalo Farias - Desarrollador Web Córdoba Argentina",
+        alt: "Gonzalo Farias — Desarrollador Web Córdoba Argentina",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gonzalo Farias - Desarrollador Web en Córdoba",
-    description: "Sitios web y sistemas a medida para negocios. Precios claros, entrega rápida.",
+    title: "Gonzalo Farias — Desarrollador Web en Córdoba",
+    description:
+      "Sitios web y sistemas a medida para negocios. Precios claros, entrega rápida.",
     creator: "@farias_goon",
     images: ["/img/logoon.png"],
   },
@@ -81,10 +79,18 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Gonzalo Farias",
-  jobTitle: "Full Stack Web Developer",
-  description: "Desarrollador web especializado en Next.js, React y TypeScript. Creo sitios web rápidos, accesibles y optimizados para SEO.",
-  url: "https://goonfarias11.github.io",
-  image: "https://goonfarias11.github.io/img/logoon.png",
+  jobTitle: "Desarrollador Web Full Stack",
+  description:
+    "Desarrollador web en Córdoba, Argentina. Especializado en Next.js, React y TypeScript. Creo sitios web y sistemas a medida para negocios.",
+  url: "https://portafoliogoon.vercel.app",
+  email: "gonfarias6@gmail.com",
+  telephone: "+5493543515007",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Córdoba",
+    addressCountry: "AR",
+  },
+  image: "https://portafoliogoon.vercel.app/img/logoon.png",
   sameAs: [
     "https://github.com/goonfarias11",
     "https://www.linkedin.com/in/goon-farias-8a584723b/",
@@ -92,27 +98,21 @@ const jsonLd = {
     "https://www.instagram.com/gonzalofarias11/",
   ],
   knowsAbout: [
-    "Web Development",
+    "Desarrollo Web",
     "Frontend Development",
     "Full Stack Development",
     "Next.js",
     "React",
     "TypeScript",
-    "JavaScript",
     "Tailwind CSS",
-    "SEO Optimization",
-    "Web Performance",
-    "Accessibility",
+    "SEO Técnico",
   ],
-  alumniOf: {
-    "@type": "Organization",
-    name: "Web Development"
-  },
   hasOccupation: {
     "@type": "Occupation",
-    name: "Full Stack Web Developer",
-    skills: "Next.js, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Git, Python"
-  }
+    name: "Desarrollador Web Full Stack",
+    skills:
+      "Next.js, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Git, Node.js",
+  },
 };
 
 export default function RootLayout({

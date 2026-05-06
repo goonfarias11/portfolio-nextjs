@@ -84,7 +84,7 @@ const Services = memo(function Services() {
                   <div className="mt-4 pt-4 border-t border-purple-500/20 flex items-center justify-between">
                     <span className="text-purple-300 font-bold text-lg">{(service as typeof service & { price: string }).price}</span>
                     <a
-                      href="https://wa.me/5493514000000?text=Hola%20Gonzalo%2C%20me%20interesa%20este%20servicio%20%F0%9F%91%8B"
+                      href="https://wa.me/5493543515007?text=Hola%20Gonzalo%2C%20me%20interesa%20este%20servicio%20%F0%9F%91%8B"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-gray-400 hover:text-purple-400 transition-colors underline underline-offset-2"

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WHATSAPP_NUMBER = "5493514000000"; // Reemplazá con tu número real
+const WHATSAPP_NUMBER = "5493543515007"; // Reemplazá con tu número real
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto web 👋"
 );
