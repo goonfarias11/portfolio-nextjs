@@ -1,4 +1,19 @@
 import type { NextConfig } from "next";
+import { jsonLdScriptHash } from "./lib/schema";
+
+const CSP = `
+  default-src 'self';
+  script-src 'self' ${jsonLdScriptHash};
+  style-src 'self';
+  img-src 'self' data: https: img.freepik.com;
+  font-src 'self';
+  connect-src 'self' https://api.resend.com;
+  frame-ancestors 'none';
+  base-uri 'self';
+  form-action 'self';
+  object-src 'none';
+  upgrade-insecure-requests;
+`.trim().replace(/\n/g, ' ');
 
 const nextConfig: NextConfig = {
   images: {
@@ -9,14 +24,71 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  turbopack: {
+    root: __dirname,
+  },
   headers: async () => {
     return [
       {
-        source: "/:path*",
+        source: "/(api|_next/image|_next/static|favicon.ico|sitemap.xml|robots.txt)/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, immutable",
+          },
+        ],
+      },
+      {
+        source: "/((?!api|_next/image|_next/static|favicon.ico|sitemap.xml|robots.txt).*)",
         headers: [
           {
             key: "Cache-Control",
             value: "public, max-age=3600, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: CSP,
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
+          },
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "require-corp",
+          },
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
+          },
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "same-site",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
           },
         ],
       },

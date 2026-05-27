@@ -1,0 +1,8 @@
+Contact: mailto:gonfarias6@gmail.com
+Contact: https://portafoliogoon.vercel.app/contact
+Expires: 2027-05-27T00:00:00Z
+Acknowledgments: https://portafoliogoon.vercel.app
+Canonical: https://portafoliogoon.vercel.app/.well-known/security.txt
+Preferred-Languages: es, en
+
+# Bug bounty and responsible disclosure are not currently offered, pero cualquier reporte de seguridad es bienvenido.

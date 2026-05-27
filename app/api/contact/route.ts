@@ -1,9 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { checkRateLimit } from '@/lib/rate-limit';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: NextRequest) {
+  if (!resend) {
+    return NextResponse.json(
+      { error: 'Resend API key missing. Configure RESEND_API_KEY in environment variables.' },
+      { status: 500 }
+    );
+  }
+  const rateLimit = checkRateLimit(request);
+
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      {
+        error: 'Demasiadas solicitudes. Por favor intenta nuevamente más tarde.',
+      },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rateLimit.reset),
+          'X-RateLimit-Limit': String(rateLimit.limit),
+          'X-RateLimit-Remaining': String(rateLimit.remaining),
+          'X-RateLimit-Reset': String(rateLimit.reset),
+        },
+      }
+    );
+  }
+
   try {
     const body = await request.json();
     const { name, email, message } = body;
@@ -35,15 +61,22 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: 'Email enviado exitosamente', data },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          'X-RateLimit-Limit': String(rateLimit.limit),
+          'X-RateLimit-Remaining': String(rateLimit.remaining),
+          'X-RateLimit-Reset': String(rateLimit.reset),
+        },
+      }
     );
   } catch (error: any) {
     console.error('Error completo al enviar email:', error);
     console.error('Detalles del error:', JSON.stringify(error, null, 2));
     return NextResponse.json(
-      { 
+      {
         error: 'Error al enviar el mensaje. Por favor intenta de nuevo.',
-        details: error.message || 'Error desconocido'
+        details: error.message || 'Error desconocido',
       },
       { status: 500 }
     );
