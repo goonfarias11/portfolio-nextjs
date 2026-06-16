@@ -212,6 +212,8 @@ export const STATS = [
   { value: "24hs", label: "Tiempo de respuesta", emoji: "⚡" },
   { value: "ARG", label: "Desarrollador en Córdoba", emoji: "🇦🇷" },
 ] as const;
+
+export const SOCIAL_LINKS = [
   {
     name: "Instagram",
     url: "https://www.instagram.com/gonzalofarias11/",
