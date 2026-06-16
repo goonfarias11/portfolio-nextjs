@@ -20,7 +20,7 @@ export const SERVICES = [
       "Sitio web profesional para tu negocio o emprendimiento. Diseño moderno, adaptado a celulares, con formulario de contacto y optimizado para aparecer en Google.",
     image:
       "/img/images/service-responsive.png",
-    link: "https://www.iebschool.com/blog/que-es-responsive-web-design-analitica-usabilidad/",
+    link: "#contact",
     benefits: ["Mobile-first", "SEO incluido", "Entrega en 7 días"],
     price: "Desde $150 USD"
   },
@@ -31,7 +31,7 @@ export const SERVICES = [
       "Desarrollo completo de sistemas y aplicaciones: tiendas online, paneles de gestión, CRMs, sistemas de turnos o lo que necesite tu negocio. Con base de datos y lógica de negocio incluida.",
     image:
       "/img/images/service-development.png",
-    link: "https://es.wikipedia.org/wiki/Dise%C3%B1o_web",
+    link: "#contact",
     benefits: ["Full Stack", "Escalable", "Mantenimiento disponible"],
     price: "Desde $400 USD"
   },
@@ -42,7 +42,7 @@ export const SERVICES = [
       "¿Tu web es lenta, no aparece en Google o se ve mal en el celular? La reviso, identifico los problemas y la dejo funcionando como debe. Velocidad, SEO técnico y accesibilidad.",
     image:
       "/img/images/service-optimization.png",
-    link: "https://grupovisuallab.com/por-que-es-importante-actualizar-tu-pagina-web/",
+    link: "#contact",
     benefits: ["Diagnóstico gratis", "Resultados medibles", "Sin contratos"],
     price: "Desde $80 USD"
   },
@@ -177,12 +177,41 @@ export const SKILLS = [
 
 export const TECH_STACK = {
   frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-  backend: ["Python", "Node.js"],
-  tools: ["Git", "GitHub", "VS Code", "Figma"],
-  learning: ["PostgreSQL", "MongoDB", "Docker"]
+  backend: ["Node.js", "Python", "PostgreSQL", "Prisma"],
+  tools: ["Git", "GitHub", "VS Code", "Figma", "n8n"],
+  learning: ["Docker", "MongoDB", "SEO"]
 } as const;
 
-export const SOCIAL_LINKS = [
+export const TESTIMONIALS = [
+  {
+    name: "Martín Pereyra",
+    role: "Dueño de Ferretería Don Martín · Córdoba",
+    text: "Gonzalo nos armó la web del local en menos de una semana. Antes los clientes llamaban para preguntar el horario, ahora todo está en el sitio y hasta nos escriben por WhatsApp directo desde ahí. Muy conforme con el resultado.",
+    stars: 5,
+    initial: "MP",
+  },
+  {
+    name: "Lucía Fernández",
+    role: "Emprendedora · Tienda de ropa online",
+    text: "Necesitaba algo prolijo para mostrar mis productos y Gonzalo entendió exactamente lo que quería desde el primer momento. El sitio quedó moderno, se ve bien en el celular y me lo entregó antes del plazo acordado.",
+    stars: 5,
+    initial: "LF",
+  },
+  {
+    name: "Diego Romero",
+    role: "Organizador de torneos amateur · Rosario",
+    text: "Usé la plataforma de torneos que desarrolló y te ahorra horas de trabajo. Antes todo era por Excel y grupos de WhatsApp, ahora los resultados se cargan solos y los equipos ven la tabla en tiempo real. Un cambio enorme.",
+    stars: 5,
+    initial: "DR",
+  },
+] as const;
+
+export const STATS = [
+  { value: "+5", label: "Proyectos en producción", emoji: "🚀" },
+  { value: "100%", label: "Proyectos entregados", emoji: "✅" },
+  { value: "24hs", label: "Tiempo de respuesta", emoji: "⚡" },
+  { value: "ARG", label: "Desarrollador en Córdoba", emoji: "🇦🇷" },
+] as const;
   {
     name: "Instagram",
     url: "https://www.instagram.com/gonzalofarias11/",

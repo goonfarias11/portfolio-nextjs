@@ -2,8 +2,7 @@
 
 import { memo } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { FaEnvelope, FaDownload, FaWhatsapp } from "react-icons/fa";
+import { FaDownload, FaWhatsapp } from "react-icons/fa";
 import { fadeIn, fadeInUp } from "@/lib/motion";
 
 const Hero = memo(function Hero() {
@@ -20,14 +19,13 @@ const Hero = memo(function Hero() {
           animate="show"
           className="flex justify-center"
         >
-          <div className="relative w-64 h-64 md:w-96 md:h-96">
-            <Image
-              src="/img/logoon.png"
-              alt="Gonzalo Farias - Desarrollador Web Full Stack"
-              fill
-              className="object-contain drop-shadow-2xl"
-              priority
-              sizes="(max-width: 768px) 256px, 384px"
+          <div className="relative w-72 h-40 md:w-[480px] md:h-[180px]">
+            <img
+              src="/img/logo-goon-dark.svg"
+              alt="GoonDev — Gonzalo Farias, Desarrollador Web"
+              className="w-full h-full object-contain drop-shadow-2xl"
+              width={480}
+              height={180}
             />
           </div>
         </motion.div>

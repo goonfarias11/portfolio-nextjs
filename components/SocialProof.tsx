@@ -4,37 +4,7 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
-
-const STATS = [
-  { value: "+5", label: "Proyectos en producción", emoji: "🚀" },
-  { value: "100%", label: "Proyectos entregados", emoji: "✅" },
-  { value: "24hs", label: "Tiempo de respuesta", emoji: "⚡" },
-  { value: "ARG", label: "Desarrollador en Córdoba", emoji: "🇦🇷" },
-];
-
-const TESTIMONIALS = [
-  {
-    name: "Martín Pereyra",
-    role: "Dueño de Ferretería Don Martín · Córdoba",
-    text: "Gonzalo nos armó la web del local en menos de una semana. Antes los clientes llamaban para preguntar el horario, ahora todo está en el sitio y hasta nos escriben por WhatsApp directo desde ahí. Muy conforme con el resultado.",
-    stars: 5,
-    initial: "MP",
-  },
-  {
-    name: "Lucía Fernández",
-    role: "Emprendedora · Tienda de ropa online",
-    text: "Necesitaba algo prolijo para mostrar mis productos y Gonzalo entendió exactamente lo que quería desde el primer momento. El sitio quedó moderno, se ve bien en el celular y me lo entregó antes del plazo acordado.",
-    stars: 5,
-    initial: "LF",
-  },
-  {
-    name: "Diego Romero",
-    role: "Organizador de torneos amateur · Rosario",
-    text: "Usé la plataforma de torneos que desarrolló y te ahorra horas de trabajo. Antes todo era por Excel y grupos de WhatsApp, ahora los resultados se cargan solos y los equipos ven la tabla en tiempo real. Un cambio enorme.",
-    stars: 5,
-    initial: "DR",
-  },
-];
+import { TESTIMONIALS, STATS } from "@/constants";
 
 const Stars = ({ count }: { count: number }) => (
   <div className="flex gap-1 mb-4">

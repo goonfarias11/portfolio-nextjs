@@ -1,0 +1,18 @@
+<svg width="560" height="200" viewBox="0 0 560 200" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>GoonDev — Gonzalo Farias, Desarrollador Web</title>
+  <desc>Logo de GoonDev variante clara</desc>
+  <defs>
+    <style>
+      .gn { font-family: 'Inter', 'Segoe UI', sans-serif; font-weight: 800; font-size: 72px; fill: #1e0a3c; letter-spacing: -2px; }
+      .gt { font-family: 'Inter', 'Segoe UI', sans-serif; font-weight: 400; font-size: 16px; fill: #7c3aed; letter-spacing: 6px; }
+      .gb { font-family: 'Courier New', monospace; font-weight: 700; font-size: 80px; fill: #7c3aed; }
+    </style>
+  </defs>
+  <text x="12" y="140" class="gb">{</text>
+  <text x="75" y="132" class="gn">GOON</text>
+  <circle cx="308" cy="108" r="7" fill="#7c3aed"/>
+  <text x="75" y="132" class="gn" dx="232">DEV</text>
+  <text x="438" y="140" class="gb">}</text>
+  <line x1="75" y1="150" x2="490" y2="150" stroke="#7c3aed" stroke-width="2" opacity="0.35"/>
+  <text x="282" y="176" class="gt" text-anchor="middle">DESARROLLADOR WEB</text>
+</svg>

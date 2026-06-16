@@ -12,8 +12,8 @@ const Projects = memo(function Projects() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref as React.RefObject<HTMLElement>);
 
-  const productionProjects = PROJECTS.filter((p: any) => p.inProduction);
-  const demoProjects = PROJECTS.filter((p: any) => !p.inProduction);
+  const productionProjects = PROJECTS.filter((p) => p.inProduction);
+  const demoProjects = PROJECTS.filter((p) => !p.inProduction);
 
   return (
     <section id="projects" className="section-padding bg-black/20">
@@ -60,7 +60,7 @@ const Projects = memo(function Projects() {
             animate={isInView ? "show" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            {productionProjects.map((project: any) => (
+            {productionProjects.map((project) => (
               <motion.article
                 key={project.id}
                 variants={zoomIn}
@@ -102,7 +102,7 @@ const Projects = memo(function Projects() {
 
                   {/* Stack tecnológico */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.stack.map((tech: string) => (
+                    {project.stack.map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-semibold rounded-md border border-green-500/40"
@@ -162,7 +162,7 @@ const Projects = memo(function Projects() {
             animate={isInView ? "show" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {demoProjects.map((project: any) => (
+            {demoProjects.map((project) => (
               <motion.article
                 key={project.id}
                 variants={zoomIn}
@@ -200,7 +200,7 @@ const Projects = memo(function Projects() {
                   
                   {/* Stack tecnológico */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.stack.map((tech: string) => (
+                    {project.stack.map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-md border border-purple-500/30"
