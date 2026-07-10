@@ -122,7 +122,7 @@ const Projects = memo(function Projects() {
                   )}
 
                   <div className="flex gap-3">
-                    {project.link !== "#" && (
+                    {(project.link as string) !== "#" && (
                       <motion.a
                         href={project.link}
                         target="_blank"
