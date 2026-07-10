@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -76,11 +77,13 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html lang="es" suppressHydrationWarning className={inter.variable}>
       <head>
@@ -89,6 +92,7 @@ export default function RootLayout({
         <script
           id="structured-data"
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: jsonLdString }}
         />
       </head>
