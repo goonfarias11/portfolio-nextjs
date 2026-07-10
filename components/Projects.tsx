@@ -3,7 +3,7 @@
 import { memo, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaExternalLinkAlt, FaGlobe, FaRocket, FaCode } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGlobe, FaRocket } from "react-icons/fa";
 import { PROJECTS } from "@/constants";
 import { fadeInUp, staggerContainer, zoomIn } from "@/lib/motion";
 import { useInView } from "@/lib/hooks";
@@ -13,7 +13,6 @@ const Projects = memo(function Projects() {
   const isInView = useInView(ref as React.RefObject<HTMLElement>);
 
   const productionProjects = PROJECTS.filter((p) => p.inProduction);
-  const demoProjects = PROJECTS.filter((p) => !p.inProduction);
 
   return (
     <section id="projects" className="section-padding bg-black/20">
@@ -35,7 +34,7 @@ const Projects = memo(function Projects() {
           viewport={{ once: true }}
           className="text-center text-gray-300 mb-16 max-w-3xl mx-auto"
         >
-          Productos en producción con usuarios reales y proyectos de práctica que demuestran mi experiencia
+          Productos en producción con usuarios reales
         </motion.p>
 
         {/* PROYECTOS EN PRODUCCIÓN */}
@@ -44,7 +43,6 @@ const Projects = memo(function Projects() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mb-12"
         >
           <div className="flex items-center gap-3 mb-8">
             <FaRocket className="text-green-400 text-2xl" />
@@ -135,93 +133,6 @@ const Projects = memo(function Projects() {
                         <FaGlobe aria-hidden="true" /> Visitar sitio
                       </motion.a>
                     )}
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* PROYECTOS DE PRÁCTICA */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <FaCode className="text-purple-400 text-2xl" />
-            <h3 className="text-2xl font-bold text-purple-400">
-              Proyectos de Práctica
-            </h3>
-          </div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {demoProjects.map((project) => (
-              <motion.article
-                key={project.id}
-                variants={zoomIn}
-                whileHover={{
-                  y: -10,
-                  scale: 1.03,
-                  boxShadow: "0 25px 50px rgba(139, 92, 246, 0.4)"
-                }}
-                className="card-hover rounded-2xl overflow-hidden group"
-                role="article"
-                aria-labelledby={`project-${project.id}`}
-              >
-                <div className="relative h-56 overflow-hidden bg-gray-900">
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} - Captura de pantalla del proyecto`}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                <div className="p-6">
-                  <h3
-                    id={`project-${project.id}`}
-                    className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors"
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-3 leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-                  
-                  {/* Stack tecnológico */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-md border border-purple-500/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3">
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, x: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-4 py-2 bg-purple-600/80 hover:bg-purple-600 rounded-lg text-sm font-medium transition-colors"
-                      aria-label={`Ver proyecto ${project.title} en vivo`}
-                    >
-                      <FaGlobe aria-hidden="true" /> Ver demo
-                    </motion.a>
                   </div>
                 </div>
               </motion.article>
