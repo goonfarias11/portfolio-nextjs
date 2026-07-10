@@ -1,19 +1,4 @@
 import type { NextConfig } from "next";
-import { jsonLdScriptHash } from "./lib/schema";
-
-const CSP = `
-  default-src 'self';
-  script-src 'self' ${jsonLdScriptHash};
-  style-src 'self';
-  img-src 'self' data: https: img.freepik.com;
-  font-src 'self';
-  connect-src 'self' https://api.resend.com;
-  frame-ancestors 'none';
-  base-uri 'self';
-  form-action 'self';
-  object-src 'none';
-  upgrade-insecure-requests;
-`.trim().replace(/\n/g, ' ');
 
 const nextConfig: NextConfig = {
   images: {
@@ -50,10 +35,6 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: [
-          {
-            key: "Content-Security-Policy",
-            value: CSP,
-          },
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
