@@ -1,25 +1,13 @@
 "use client";
 
-import { memo, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { memo } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { SKILLS } from "@/constants";
 import { fadeIn, fadeInUp } from "@/lib/motion";
-import { useInView } from "@/lib/hooks";
 
 const About = memo(function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref as React.RefObject<HTMLElement>);
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
   return (
-    <section id="about" className="section-padding" ref={ref}>
+    <section id="about" className="section-padding">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           variants={fadeInUp}
@@ -31,8 +19,8 @@ const About = memo(function About() {
           Sobre Mí
         </motion.h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Image with Parallax */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Image */}
           <motion.div
             variants={fadeIn("right", 0.2)}
             initial="hidden"
@@ -40,10 +28,7 @@ const About = memo(function About() {
             viewport={{ once: true }}
             className="flex justify-center order-2 lg:order-1"
           >
-            <motion.div 
-              style={{ y }}
-              className="relative w-full max-w-md"
-            >
+            <div className="relative w-full max-w-md">
               <Image
                 src="/img/goon.png"
                 alt="Gonzalo Farias - Desarrollador Web Full Stack trabajando en proyectos"
@@ -52,7 +37,7 @@ const About = memo(function About() {
                 className="rounded-2xl shadow-2xl shadow-purple-500/50"
                 priority
               />
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Content */}
