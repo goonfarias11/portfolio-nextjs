@@ -40,7 +40,7 @@ export const SERVICES = [
 
     image:
 
-      "/img/images/service-responsive.png",
+      "/img/images/generadorcv.png",
 
     link: "#contact",
 
@@ -62,7 +62,7 @@ export const SERVICES = [
 
     image:
 
-      "/img/images/service-development.png",
+      "/img/images/vendimax.png",
 
     link: "#contact",
 
@@ -84,7 +84,7 @@ export const SERVICES = [
 
     image:
 
-      "/img/images/service-optimization.png",
+      "/img/images/restaurantos.png",
 
     link: "#contact",
 
@@ -365,30 +365,6 @@ export const TECH_STACK = {
 } as const;
 
 
-
-export const TESTIMONIALS = [
-  {
-    name: "Martín Pereyra",
-    role: "Dueño de Ferretería Don Martín · Córdoba",
-    text: "Gonzalo nos armó la web del local en menos de una semana. Antes los clientes llamaban para preguntar el horario, ahora todo está en el sitio y hasta nos escriben por WhatsApp directo desde ahí. Muy conforme con el resultado.",
-    stars: 5,
-    initial: "MP",
-  },
-  {
-    name: "Lucía Fernández",
-    role: "Emprendedora · Tienda de ropa online",
-    text: "Necesitaba algo prolijo para mostrar mis productos y Gonzalo entendió exactamente lo que quería desde el primer momento. El sitio quedó moderno, se ve bien en el celular y me lo entregó antes del plazo acordado.",
-    stars: 5,
-    initial: "LF",
-  },
-  {
-    name: "Diego Romero",
-    role: "Organizador de torneos amateur · Rosario",
-    text: "Usé la plataforma de torneos que desarrolló y te ahorra horas de trabajo. Antes todo era por Excel y grupos de WhatsApp, ahora los resultados se cargan solos y los equipos ven la tabla en tiempo real. Un cambio enorme.",
-    stars: 5,
-    initial: "DR",
-  },
-] as const;
 
 export const STATS = [
   { value: "+5", label: "Proyectos en producción", emoji: "🚀" },
