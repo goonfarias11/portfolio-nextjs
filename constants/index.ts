@@ -40,7 +40,7 @@ export const SERVICES = [
 
     image:
 
-      "/img/images/generadorcv.png",
+      "https://images.pexels.com/photos/3888151/pexels-photo-3888151.jpeg?auto=compress&cs=tinysrgb&w=1200",
 
     link: "#contact",
 
@@ -62,7 +62,7 @@ export const SERVICES = [
 
     image:
 
-      "/img/images/vendimax.png",
+      "https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&w=1200",
 
     link: "#contact",
 
@@ -84,7 +84,7 @@ export const SERVICES = [
 
     image:
 
-      "/img/images/restaurantos.png",
+      "https://images.pexels.com/photos/6476592/pexels-photo-6476592.jpeg?auto=compress&cs=tinysrgb&w=1200",
 
     link: "#contact",
 
