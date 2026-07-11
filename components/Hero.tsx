@@ -9,7 +9,7 @@ const Hero = memo(function Hero() {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex items-center justify-center px-4 pt-24 pb-12"
+      className="flex items-center justify-center px-4 pt-24 pb-12 md:min-h-[85vh]"
     >
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         {/* Logo */}
