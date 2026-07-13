@@ -80,7 +80,7 @@ const Projects = memo(function Projects() {
                     src={project.image}
                     alt={`${project.title} - Producto en producción`}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     loading="eager"
                   />
