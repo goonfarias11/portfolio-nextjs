@@ -15,26 +15,49 @@ export function useInView(ref: RefObject<HTMLElement>, options = { once: true, a
  */
 export function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState(sectionIds[0] || "");
+  const idsKey = sectionIds.join(",");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = sectionIds.map((id) => document.getElementById(id.replace("#", "")));
-      const scrollPosition = window.scrollY + 200;
+    const ids = idsKey.split(",").filter(Boolean);
+    if (ids.length === 0) return;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sectionIds[i]);
-          break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection("#" + entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    const observed = new Set<string>();
+
+    const tryObserve = () => {
+      ids.forEach((id) => {
+        const cleanId = id.replace("#", "");
+        if (!cleanId || observed.has(cleanId)) return;
+        const el = document.getElementById(cleanId);
+        if (el) {
+          observer.observe(el);
+          observed.add(cleanId);
         }
-      }
+      });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    tryObserve();
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [sectionIds]);
+    // Las secciones se hidratan de forma diferida (streaming), así que
+    // seguimos intentando observarlas a medida que aparecen en el DOM.
+    const mutationObserver = new MutationObserver(tryObserve);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, [idsKey]);
 
   return activeSection;
 }
