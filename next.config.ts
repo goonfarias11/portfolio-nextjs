@@ -60,10 +60,6 @@ const nextConfig: NextConfig = {
             value: "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
           },
           {
-            key: "Cross-Origin-Embedder-Policy",
-            value: "require-corp",
-          },
-          {
             key: "Cross-Origin-Opener-Policy",
             value: "same-origin",
           },
