@@ -119,6 +119,10 @@ export async function checkRateLimit(
 ): Promise<RateLimitResult> {
   const ip = getClientIp(request);
 
+  console.log(
+    `[rate-limit] backend=${redis ? "redis" : "memory-fallback"} ip=${ip}`
+  );
+
   if (redis) {
     try {
       return await checkRateLimitRedis(ip);
