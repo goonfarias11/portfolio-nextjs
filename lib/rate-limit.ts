@@ -1,15 +1,26 @@
 import type { NextRequest } from "next/server";
+import { Redis } from "@upstash/redis";
 
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_WINDOW_SECONDS = RATE_LIMIT_WINDOW_MS / 1000;
 const MAX_REQUESTS_PER_WINDOW = 10;
 
-const rateLimitStore = new Map<
-  string,
-  {
-    count: number;
-    expiresAt: number;
-  }
->();
+// Soporta tanto la integración "Upstash Redis" como "Vercel KV" (nombres de
+// variables distintos según cómo se conecte el storage en Vercel).
+const redisUrl =
+  process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+const redisToken =
+  process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+
+const redis =
+  redisUrl && redisToken
+    ? new Redis({ url: redisUrl, token: redisToken })
+    : null;
+
+// Fallback en memoria (solo se usa si todavía no hay Redis conectado).
+// No es confiable en serverless porque cada instancia tiene su propia
+// memoria, pero evita que el sitio se rompa mientras no esté configurado.
+const memoryStore = new Map<string, { count: number; expiresAt: number }>();
 
 export function getClientIp(request: NextRequest): string {
   const forwarded = request.headers.get("x-forwarded-for");
@@ -25,13 +36,19 @@ export function getClientIp(request: NextRequest): string {
   return "unknown";
 }
 
-export function checkRateLimit(request: NextRequest) {
-  const ip = getClientIp(request);
+type RateLimitResult = {
+  allowed: boolean;
+  limit: number;
+  remaining: number;
+  reset: number;
+};
+
+function checkRateLimitMemory(ip: string): RateLimitResult {
   const now = Date.now();
-  const existing = rateLimitStore.get(ip);
+  const existing = memoryStore.get(ip);
 
   if (!existing || existing.expiresAt <= now) {
-    rateLimitStore.set(ip, {
+    memoryStore.set(ip, {
       count: 1,
       expiresAt: now + RATE_LIMIT_WINDOW_MS,
     });
@@ -54,7 +71,7 @@ export function checkRateLimit(request: NextRequest) {
   }
 
   existing.count += 1;
-  rateLimitStore.set(ip, existing);
+  memoryStore.set(ip, existing);
 
   return {
     allowed: true,
@@ -62,4 +79,53 @@ export function checkRateLimit(request: NextRequest) {
     remaining: MAX_REQUESTS_PER_WINDOW - existing.count,
     reset: Math.floor(existing.expiresAt / 1000),
   };
+}
+
+async function checkRateLimitRedis(ip: string): Promise<RateLimitResult> {
+  const key = `ratelimit:contact:${ip}`;
+
+  // INCR atómico: si es la primera request de la ventana, arranca en 1
+  // y le ponemos TTL; si no, solo incrementa.
+  const count = await redis!.incr(key);
+
+  if (count === 1) {
+    await redis!.expire(key, RATE_LIMIT_WINDOW_SECONDS);
+  }
+
+  const ttl = await redis!.ttl(key);
+  const resetSeconds = ttl > 0 ? ttl : RATE_LIMIT_WINDOW_SECONDS;
+  const reset = Math.floor(Date.now() / 1000) + resetSeconds;
+
+  if (count > MAX_REQUESTS_PER_WINDOW) {
+    return {
+      allowed: false,
+      limit: MAX_REQUESTS_PER_WINDOW,
+      remaining: 0,
+      reset,
+    };
+  }
+
+  return {
+    allowed: true,
+    limit: MAX_REQUESTS_PER_WINDOW,
+    remaining: Math.max(0, MAX_REQUESTS_PER_WINDOW - count),
+    reset,
+  };
+}
+
+export async function checkRateLimit(
+  request: NextRequest
+): Promise<RateLimitResult> {
+  const ip = getClientIp(request);
+
+  if (redis) {
+    try {
+      return await checkRateLimitRedis(ip);
+    } catch (error) {
+      console.error("Rate limit (Redis) error, usando fallback en memoria:", error);
+      return checkRateLimitMemory(ip);
+    }
+  }
+
+  return checkRateLimitMemory(ip);
 }
