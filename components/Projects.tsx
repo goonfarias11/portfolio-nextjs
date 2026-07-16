@@ -71,7 +71,7 @@ const Projects = memo(function Projects() {
                 role="article"
                 aria-labelledby={`project-${project.id}`}
               >
-                <div className="relative h-64 overflow-hidden bg-gray-900">
+                <div className="relative aspect-[21/9] overflow-hidden bg-gray-900">
                   {/* Badge en producción */}
                   <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
                     <FaRocket /> EN PRODUCCIÓN
@@ -80,7 +80,7 @@ const Projects = memo(function Projects() {
                     src={project.image}
                     alt={`${project.title} - Producto en producción`}
                     fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     loading="eager"
                   />
