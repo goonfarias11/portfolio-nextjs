@@ -2,6 +2,7 @@
 
 import { memo, useRef } from "react";
 import { motion } from "framer-motion";
+import { FaBolt, FaUniversalAccess } from "react-icons/fa";
 import { TECH_STACK } from "@/constants";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { useInView } from "@/lib/hooks";
@@ -88,14 +89,14 @@ const TechStack = memo(function TechStack() {
             </p>
           </div>
           <div className="card-hover rounded-2xl p-6 text-center">
-            <div className="text-4xl font-bold text-purple-400 mb-2">⚡</div>
+            <FaBolt className="text-4xl text-purple-400 mb-2 mx-auto" aria-hidden="true" />
             <h4 className="text-lg font-semibold mb-2">Performance</h4>
             <p className="text-gray-400 text-sm">
               Carga rápida y Core Web Vitals optimizados para mejor experiencia
             </p>
           </div>
           <div className="card-hover rounded-2xl p-6 text-center">
-            <div className="text-4xl font-bold text-purple-400 mb-2">♿</div>
+            <FaUniversalAccess className="text-4xl text-purple-400 mb-2 mx-auto" aria-hidden="true" />
             <h4 className="text-lg font-semibold mb-2">Accesibilidad</h4>
             <p className="text-gray-400 text-sm">
               Sitios accesibles para todos siguiendo estándares WCAG
