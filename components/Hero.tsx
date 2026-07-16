@@ -19,13 +19,13 @@ const Hero = memo(function Hero() {
           animate="show"
           className="flex justify-center"
         >
-          <div className="relative w-72 h-40 md:w-[480px] md:h-[180px]">
+          <div className="relative w-56 md:w-80 aspect-[749/652]">
             <img
-              src="/img/logo-goon-dark.svg"
+              src="/img/logo-goon-new.png"
               alt="GoonDev — Gonzalo Farias, Desarrollador Web"
               className="w-full h-full object-contain drop-shadow-2xl"
-              width={480}
-              height={180}
+              width={749}
+              height={652}
             />
           </div>
         </motion.div>
