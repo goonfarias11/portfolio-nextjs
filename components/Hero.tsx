@@ -71,7 +71,7 @@ const Hero = memo(function Hero() {
               Disponible para proyectos
             </span>
             <span className="text-gray-500">·</span>
-            <span className="text-gray-300">🇦🇷 Córdoba, Argentina</span>
+            <span className="text-gray-300">Córdoba, Argentina</span>
             <span className="text-gray-500">·</span>
             <span className="text-gray-300">Respondo en menos de 24hs</span>
           </motion.div>
