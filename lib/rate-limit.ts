@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { Redis } from "@upstash/redis";
 
+// Rate limiting con Upstash Redis (conectado el 16/07/2026)
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_WINDOW_SECONDS = RATE_LIMIT_WINDOW_MS / 1000;
 const MAX_REQUESTS_PER_WINDOW = 10;
