@@ -8,7 +8,7 @@ import { fadeInUp, staggerFast } from "@/lib/motion";
 
 const WHATSAPP_NUMBER = "5493543515007";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋"
+  "Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto"
 );
 
 const Footer = memo(function Footer() {
@@ -122,7 +122,7 @@ const Footer = memo(function Footer() {
             © {currentYear} Gonzalo Farias. Todos los derechos reservados.
           </p>
           <p className="text-gray-500 text-xs mt-2">
-            Desarrollado con ⚡ usando Next.js 15 & Tailwind CSS
+            Desarrollado con Next.js 15 & Tailwind CSS
           </p>
         </motion.div>
       </div>
