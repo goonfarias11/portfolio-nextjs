@@ -3,6 +3,7 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 import { fadeIn, fadeInUp } from "@/lib/motion";
 
 const About = memo(function About() {
@@ -69,18 +70,33 @@ const About = memo(function About() {
                   <strong>Lo que podés esperar si trabajamos juntos:</strong>
                 </p>
                 <ul className="list-none space-y-2 text-gray-400">
-                  <li>✅ Comunicación clara en todo momento, sin vueltas técnicas</li>
-                  <li>✅ Entrega en tiempo y forma, con plazos reales</li>
-                  <li>✅ Precios transparentes antes de empezar</li>
-                  <li>✅ Soporte post-entrega incluido</li>
-                  <li>✅ Sitio optimizado para Google desde el día uno</li>
+                  <li className="flex items-start gap-2">
+                    <FaCheck className="text-purple-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                    Comunicación clara en todo momento, sin vueltas técnicas
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FaCheck className="text-purple-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                    Entrega en tiempo y forma, con plazos reales
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FaCheck className="text-purple-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                    Precios transparentes antes de empezar
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FaCheck className="text-purple-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                    Soporte post-entrega incluido
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FaCheck className="text-purple-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                    Sitio optimizado para Google desde el día uno
+                  </li>
                 </ul>
               </div>
 
               {/* CTA */}
               <div className="mt-6 pt-6 border-t border-purple-500/20">
                 <a
-                  href={`https://wa.me/5493543515007?text=${encodeURIComponent("Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto 👋")}`}
+                  href={`https://wa.me/5493543515007?text=${encodeURIComponent("Hola Gonzalo, vi tu portfolio y me interesa hablar sobre mi proyecto")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-purple-600/30 border border-purple-500/50 text-purple-300 rounded-full hover:bg-purple-600/50 transition-colors font-medium text-sm"
