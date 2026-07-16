@@ -100,7 +100,7 @@ export const SERVICES = [
 
 export const PROJECTS = [
 
-  // 🚀 PRODUCTO ESTRELLA
+  // PRODUCTO ESTRELLA
 
   {
 
@@ -134,7 +134,7 @@ export const PROJECTS = [
 
 
 
-  // 💼 FULL-STACK BUSINESS APPS
+  // FULL-STACK BUSINESS APPS
 
   {
 
@@ -228,7 +228,7 @@ export const PROJECTS = [
 
 
 
-  // 🎯 PROYECTOS COMPLEMENTARIOS
+  // PROYECTOS COMPLEMENTARIOS
 
   {
 
@@ -292,7 +292,7 @@ export const PROJECTS = [
 
 
 
-  // 🎨 DISEÑO Y UI/UX
+  // DISEÑO Y UI/UX
 
   {
 
@@ -367,10 +367,10 @@ export const TECH_STACK = {
 
 
 export const STATS = [
-  { value: "+5", label: "Proyectos en producción", emoji: "🚀" },
-  { value: "100%", label: "Proyectos entregados", emoji: "✅" },
-  { value: "24hs", label: "Tiempo de respuesta", emoji: "⚡" },
-  { value: "ARG", label: "Desarrollador en Córdoba", emoji: "🇦🇷" },
+  { value: "+5", label: "Proyectos en producción", icon: "rocket" },
+  { value: "100%", label: "Proyectos entregados", icon: "check" },
+  { value: "24hs", label: "Tiempo de respuesta", icon: "bolt" },
+  { value: "ARG", label: "Desarrollador en Córdoba", icon: "location" },
 ] as const;
 
 
