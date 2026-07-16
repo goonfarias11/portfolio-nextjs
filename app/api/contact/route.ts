@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-  const rateLimit = checkRateLimit(request);
+  const rateLimit = await checkRateLimit(request);
 
   if (!rateLimit.allowed) {
     return NextResponse.json(
