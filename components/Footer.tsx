@@ -92,7 +92,7 @@ const Footer = memo(function Footer() {
                 {[
                   { href: "#services", label: "Servicios y precios" },
                   { href: "#projects", label: "Proyectos" },
-                  { href: "#testimonials", label: "Testimonios" },
+                  { href: "#testimonials", label: "Logros" },
                   { href: "#about", label: "Sobre mí" },
                   { href: "#contact", label: "Contacto" },
                 ].map((link) => (
